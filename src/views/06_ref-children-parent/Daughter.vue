@@ -10,7 +10,7 @@ import {ref} from 'vue';
 //闺女钱数
 let money = ref(999999);
 //闺女按钮点击回调
-const handler = ($parent)=>{
+const handler = ($parent: any)=>{
    money.value+=10000;
    $parent.money-=10000;
 }

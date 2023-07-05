@@ -10,11 +10,16 @@
 import Child from "./Child.vue";
 //vue3提供provide(提供)与inject(注入),可以实现隔辈组件传递数据
 import { ref, provide } from "vue";
-let car = ref("法拉利");
+let car = ref<string>("法拉利");
 //祖先组件给后代组件提供数据
 //两个参数:第一个参数就是提供的数据key
 //第二个参数:祖先组件提供数据
+const changeCar = (data: string) => {
+  car.value = data;
+}
+
 provide("TOKEN", car);
+provide("updateCar", changeCar);
 </script>
 
 <style scoped>

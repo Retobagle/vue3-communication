@@ -1,4 +1,4 @@
-<template>
+x``<template>
   <div class="son">
     <h3>我是子组件:曹植{{money}}</h3>
   </div>

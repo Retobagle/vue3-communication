@@ -3,7 +3,7 @@
     <h1>事件</h1>
     <!-- 原生DOM事件 -->
     <pre @click="handler">
-      大江东去浪淘尽,千古分流人物
+      大江东去浪淘尽,千古风流人物
     </pre>
     <button @click="handler1(1,2,3,$event)">点击我传递多个参数</button>
     <hr>
@@ -16,7 +16,7 @@
     <Event1 @click="handler2"></Event1>
     <hr>
     <!-- 绑定自定义事件xxx:实现子组件给父组件传递数据 -->
-    <Event2 @xxx="handler3" @click="handler4"></Event2>
+    <Event2 @xxx="handler" @click="handler4"></Event2>
   </div>
 </template>
 
@@ -26,9 +26,11 @@ import Event1 from './Event1.vue';
 //引入子组件
 import Event2 from './Event2.vue';
 //事件回调--1
-const handler = (event)=>{
+const handler = (event: MouseEvent)=>{
     //event即为事件对象
     console.log(event);
+    // alert((event.target as HTMLElement).innerHTML);  //类型断言
+    alert((<HTMLElement>event.target).innerHTML);
 }
 //事件回调--2
 const handler1 = (a,b,c,$event)=>{
@@ -43,7 +45,7 @@ const handler3 = (param1,param2)=>{
     console.log(param1,param2);
 }
 //事件回调--5
-const handler4 = (param1,param2)=>{
+const handler4 = (param1: number,param2: number)=>{
      console.log(param1,param2);
 }
 </script>

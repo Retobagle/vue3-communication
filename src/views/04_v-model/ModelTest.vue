@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>v-model:钱数{{ money }}{{pageNo}}{{pageSize}}</h1>
-    <input type="text" v-model="info" />
+    <input type="text" v-model="info" /><span>{{ info }}</span>
     <hr />
     <!-- props:父亲给儿子数据 -->
     <!-- <Child :modelValue="money" @update:modelValue="handler"></Child> -->

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <h1 :a="h">useAttrs</h1> -->
     <h1>useAttrs</h1>
     <el-button type="primary" size="small" :icon="Edit"></el-button>
     <!-- 自定义组件 -->
@@ -19,10 +20,12 @@ import {
   Star,
 } from "@element-plus/icons-vue";
 import HintButton from "./HintButton.vue";
+import {ref} from "vue"
 //按钮点击的回调
 const handler = ()=>{
   alert(12306);
 }
+// const h = ref(100);
 </script>
 
 <style scoped>

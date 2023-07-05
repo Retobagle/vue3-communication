@@ -15,7 +15,7 @@
       <router-link to="/ref-parent_pre">ref$parent</router-link>&nbsp;&nbsp;
       <router-link to="/provide-inject_pre">provide-inject</router-link>&nbsp;&nbsp;
       <router-link to="/vuex_pre">pinia</router-link>&nbsp;&nbsp;
-      <router-link to="/slot_pre">slot</router-link>&nbsp;&nbsp;
+      <button @click="toSlot">slot</button>&nbsp;&nbsp;
     </div>
     <br>
     <router-view></router-view>
@@ -28,7 +28,14 @@
   }
 </script>
 <script lang="ts" setup>
-  
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+  const toSlot = () => {
+    // useRouter 方法必须在 setup 中进行调用，不能放在异步任务中进行，否则结果会是undefined
+    // const router = useRouter();
+    // console.log('router', router)
+    router.push('/slot_pre');
+  }
 </script>
 <style lang="less" scoped>
   .com {
